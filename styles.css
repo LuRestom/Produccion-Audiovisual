@@ -1,49 +1,67 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #fff7f7;
-    margin: 20px;
+    background-color: #fff5f5;
     color: #333;
+    margin: 0;
+    padding: 20px;
 }
 
 h1 {
     text-align: center;
-    color: #b30000;
+    color: #a33;
 }
 
-h2 {
-    margin-top: 30px;
-    color: #800000;
-}
-
-.cuatrimestre {
+.malla-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 20px;
+    justify-content: center;
+}
+
+.bloque {
+    padding: 15px;
+    border-radius: 10px;
+    width: 280px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.bloque h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
 }
 
 .materia {
-    padding: 10px;
-    background-color: #ffcccc;
-    border: 1px solid #b30000;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 8px;
+    margin-bottom: 5px;
     border-radius: 5px;
     cursor: pointer;
-    width: 200px;
-    text-align: center;
-    transition: background-color 0.3s;
+    transition: all 0.2s ease;
 }
 
 .materia:hover {
-    background-color: #ff9999;
+    background-color: #fdd;
 }
 
-.bloqueada {
-    background-color: #ffe5e5;
+.materia.bloqueada {
+    background-color: #eee;
     color: #aaa;
     cursor: not-allowed;
 }
 
-.aprobada {
-    background-color: #b3ffb3;
-    border-color: #008000;
+.materia.aprobada {
+    text-decoration: line-through;
+    opacity: 0.5;
 }
+
+.año1 { background-color: #ffe0e0; }
+.año2 { background-color: #ffe8d6; }
+.año3 { background-color: #e0ffe0; }
+
+.cuatrimestre {
+    border-top: 2px solid #ccc;
+    padding-top: 5px;
+}
+
+
