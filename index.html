@@ -2,73 +2,16 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Malla Curricular Interactiva</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnicatura Universitaria en Producción Audiovisual</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Malla Curricular Interactiva</h1>
-
-    <div id="malla">
-        <!-- PRIMER AÑO -->
-        <h2>Primer Año</h2>
-        <h3>Primer Cuatrimestre</h3>
-        <div class="cuatrimestre">
-            <div class="materia" data-id="electricidad" data-desbloquea="produccion_tv,sonido">Electricidad y Mantenimiento</div>
-            <div class="materia" data-id="guion" data-desbloquea="arte_diseno,produccion_comunitaria,produccion_tv,sonido">Guion</div>
-            <div class="materia" data-id="medios" data-desbloquea="semiotica,estetica,produccion_comunitaria">Medios de Comunicación y Cultura</div>
-        </div>
-
-        <h3>Segundo Cuatrimestre</h3>
-        <div class="cuatrimestre">
-            <div class="materia bloqueada" data-id="semiotica" data-desbloquea="estetica,audiovisual2">Semiótica</div>
-            <div class="materia bloqueada" data-id="arte_diseno" data-desbloquea="edicion,realizacion_audiovisual,narrativa_transmedia">Arte y Diseño Digital</div>
-            <div class="materia bloqueada" data-id="produccion_comunitaria" data-desbloquea="audiovisual2,derecho,produccion_tv">Producción Comunitaria</div>
-            <div class="materia bloqueada" data-id="produccion_tv" data-desbloquea="edicion,audiovisual2,derecho,realizacion_audiovisual">Producción Televisiva</div>
-        </div>
-
-        <h3>Anuales</h3>
-        <div class="cuatrimestre">
-            <div class="materia" data-id="fotografia" data-desbloquea="edicion,audiovisual2,realizacion_audiovisual,narrativa_transmedia">Fotografía, Iluminación y Cámara</div>
-            <div class="materia" data-id="audiovisual1" data-desbloquea="audiovisual2,realizacion_audiovisual,derecho,narrativa_transmedia">Audiovisual I</div>
-            <div class="materia" data-id="practica1">Práctica Profesional</div>
-        </div>
-
-        <!-- SEGUNDO AÑO -->
-        <h2>Segundo Año</h2>
-        <h3>Primer Cuatrimestre</h3>
-        <div class="cuatrimestre">
-            <div class="materia bloqueada" data-id="estetica" data-desbloquea="derecho">Estética Audiovisual</div>
-            <div class="materia bloqueada" data-id="sonido" data-desbloquea="audiovisual3">Sonido</div>
-        </div>
-
-        <h3>Segundo Cuatrimestre</h3>
-        <div class="cuatrimestre">
-            <div class="materia bloqueada" data-id="derecho" data-desbloquea="audiovisual3">Derecho Audiovisual</div>
-            <div class="materia bloqueada" data-id="realizacion_audiovisual">Realización Audiovisual</div>
-            <div class="materia bloqueada" data-id="narrativa_transmedia" data-desbloquea="ingles">Narrativa Transmedia</div>
-        </div>
-
-        <h3>Anuales</h3>
-        <div class="cuatrimestre">
-            <div class="materia bloqueada" data-id="edicion" data-desbloquea="audiovisual3">Edición</div>
-            <div class="materia bloqueada" data-id="audiovisual2" data-desbloquea="ingles,direccion_arte">Audiovisual II</div>
-            <div class="materia" data-id="practica2">Práctica Profesional</div>
-            <div class="materia" data-id="tp_final1">TP Final</div>
-        </div>
-
-        <!-- TERCER AÑO -->
-        <h2>Tercer Año</h2>
-        <h3>Primer Cuatrimestre</h3>
-        <div class="cuatrimestre">
-            <div class="materia bloqueada" data-id="ingles">Inglés</div>
-            <div class="materia bloqueada" data-id="direccion_arte">Dirección de Arte y Ambientación</div>
-            <div class="materia" data-id="electiva1">Electiva I</div>
-            <div class="materia" data-id="electiva2">Electiva II</div>
-            <div class="materia bloqueada" data-id="audiovisual3">Audiovisual III</div>
-            <div class="materia" data-id="practica3">Práctica Profesional</div>
-            <div class="materia" data-id="tp_final2">TP Final</div>
-        </div>
-    </div>
+    <h1>Tecnicatura Universitaria en Producción Audiovisual</h1>
+    <div id="malla"></div>
+    <script src="script.js"></script>
+</body>
+</html>
 
     <script src="script.js"></script>
 </body>
