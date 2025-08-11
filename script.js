@@ -1,93 +1,70 @@
 const materias = [
     // PRIMER AÑO
-    { nombre: "Electricidad y Mantenimiento", abre: ["Producción Televisiva", "Sonido"], año: 1, cuatri: 1 },
-    { nombre: "Guion", abre: ["Arte y Diseño Digital", "Producción Comunitaria", "Producción Televisiva", "Sonido"], año: 1, cuatri: 1 },
-    { nombre: "Medios de Comunicación y Cultura", abre: ["Semiótica", "Estética Audiovisual", "Producción Comunitaria"], año: 1, cuatri: 1 },
-    { nombre: "Semiótica", abre: ["Estética Audiovisual", "Audiovisual II"], año: 1, cuatri: 2 },
-    { nombre: "Arte y Diseño Digital", abre: ["Edición", "Realización Audiovisual", "Narrativa Transmedia"], año: 1, cuatri: 2 },
-    { nombre: "Producción Comunitaria", abre: ["Audiovisual II", "Derecho Audiovisual"], año: 1, cuatri: 2 },
-    { nombre: "Producción Televisiva", abre: ["Edición", "Audiovisual II", "Derecho Audiovisual", "Realización Audiovisual"], año: 1, cuatri: 2 },
-    { nombre: "Fotografía, Iluminación y Cámara", abre: ["Edición", "Audiovisual II", "Realización Audiovisual", "Narrativa Transmedia"], año: 1, cuatri: "Anual" },
-    { nombre: "Audiovisual I", abre: ["Audiovisual II", "Realización Audiovisual", "Derecho Audiovisual", "Narrativa Transmedia"], año: 1, cuatri: "Anual" },
-    { nombre: "Práctica Profesional", abre: [], año: 1, cuatri: "Anual" },
+    { nombre: "Electricidad y Mantenimiento", id: "electricidad", abre: ["produccion_tv", "sonido"], grupo: "año1c1" },
+    { nombre: "Guion", id: "guion", abre: ["arte_diseno", "produccion_comunitaria", "produccion_tv", "sonido"], grupo: "año1c1" },
+    { nombre: "Medios de Comunicación y Cultura", id: "medios", abre: ["semiotica", "estetica", "produccion_comunitaria"], grupo: "año1c1" },
+
+    { nombre: "Semiótica", id: "semiotica", abre: ["estetica", "audiovisual2"], grupo: "año1c2", req: ["medios"] },
+    { nombre: "Arte y Diseño Digital", id: "arte_diseno", abre: ["edicion", "realizacion", "narrativa"], grupo: "año1c2", req: ["guion"] },
+    { nombre: "Producción Comunitaria", id: "produccion_comunitaria", abre: ["audiovisual2", "derecho", "produccion_tv"], grupo: "año1c2", req: ["guion", "medios"] },
+    { nombre: "Producción Televisiva", id: "produccion_tv", abre: ["edicion", "audiovisual2", "derecho", "realizacion"], grupo: "año1c2", req: ["guion", "electricidad"] },
+
+    { nombre: "Fotografía, Iluminación y Cámara", id: "foto", abre: ["edicion", "audiovisual2", "realizacion", "narrativa"], grupo: "año1anual" },
+    { nombre: "Audiovisual I", id: "audiovisual1", abre: ["audiovisual2", "realizacion", "derecho", "narrativa"], grupo: "año1anual" },
+    { nombre: "Práctica Profesional", id: "practica1", grupo: "año1anual" },
 
     // SEGUNDO AÑO
-    { nombre: "Estética Audiovisual", abre: ["Derecho Audiovisual"], año: 2, cuatri: 1 },
-    { nombre: "Sonido", abre: ["Audiovisual III"], año: 2, cuatri: 1 },
-    { nombre: "Derecho Audiovisual", abre: ["Audiovisual III"], año: 2, cuatri: 2 },
-    { nombre: "Realización Audiovisual", abre: [], año: 2, cuatri: 2 },
-    { nombre: "Narrativa Transmedia", abre: ["Inglés"], año: 2, cuatri: 2 },
-    { nombre: "Edición", abre: ["Audiovisual III"], año: 2, cuatri: "Anual" },
-    { nombre: "Audiovisual II", abre: ["Inglés", "Dirección de arte y Ambientación"], año: 2, cuatri: "Anual" },
-    { nombre: "Práctica Profesional", abre: [], año: 2, cuatri: "Anual" },
-    { nombre: "TP Final", abre: [], año: 2, cuatri: "Anual" },
+    { nombre: "Estética Audiovisual", id: "estetica", abre: ["derecho"], grupo: "año2c1", req: ["medios", "semiotica"] },
+    { nombre: "Sonido", id: "sonido", abre: ["audiovisual3"], grupo: "año2c1", req: ["electricidad", "guion"] },
+
+    { nombre: "Derecho Audiovisual", id: "derecho", abre: ["audiovisual3"], grupo: "año2c2", req: ["produccion_tv", "produccion_comunitaria", "audiovisual1", "estetica"] },
+    { nombre: "Realización Audiovisual", id: "realizacion", grupo: "año2c2", req: ["arte_diseno", "produccion_tv", "foto", "audiovisual1"] },
+    { nombre: "Narrativa Transmedia", id: "narrativa", abre: ["ingles"], grupo: "año2c2", req: ["arte_diseno", "foto", "audiovisual1"] },
+
+    { nombre: "Edición", id: "edicion", abre: ["audiovisual3"], grupo: "año2anual", req: ["arte_diseno", "produccion_tv", "foto"] },
+    { nombre: "Audiovisual II", id: "audiovisual2", abre: ["ingles", "direccion_arte"], grupo: "año2anual", req: ["semiotica", "produccion_comunitaria", "produccion_tv", "foto", "audiovisual1"] },
+    { nombre: "Práctica Profesional", id: "practica2", grupo: "año2anual" },
+    { nombre: "TP Final", id: "tp2", grupo: "año2anual" },
 
     // TERCER AÑO
-    { nombre: "Inglés", abre: [], año: 3, cuatri: 1 },
-    { nombre: "Dirección de arte y Ambientación", abre: [], año: 3, cuatri: 1 },
-    { nombre: "Electiva I", abre: [], año: 3, cuatri: 1 },
-    { nombre: "Electiva II", abre: [], año: 3, cuatri: 1 },
-    { nombre: "Audiovisual III", abre: [], año: 3, cuatri: 1 },
-    { nombre: "Práctica Profesional", abre: [], año: 3, cuatri: 1 },
-    { nombre: "TP Final", abre: [], año: 3, cuatri: 1 }
+    { nombre: "Inglés", id: "ingles", grupo: "año3c1", req: ["narrativa", "audiovisual2"] },
+    { nombre: "Dirección de Arte y Ambientación", id: "direccion_arte", grupo: "año3c1", req: ["audiovisual2"] },
+    { nombre: "Electiva I", id: "electiva1", grupo: "año3c1" },
+    { nombre: "Electiva II", id: "electiva2", grupo: "año3c1" },
+    { nombre: "Audiovisual III", id: "audiovisual3", grupo: "año3c1", req: ["sonido", "derecho", "edicion"] },
+    { nombre: "Práctica Profesional", id: "practica3", grupo: "año3c1" },
+    { nombre: "TP Final", id: "tp3", grupo: "año3c1" }
 ];
 
-let aprobadas = JSON.parse(localStorage.getItem("aprobadas")) || [];
+let progreso = JSON.parse(localStorage.getItem("progresoMaterias")) || [];
 
-function crearMalla() {
+function renderMalla() {
     const contenedor = document.getElementById("malla");
     contenedor.innerHTML = "";
-    const años = [1, 2, 3];
-    
-    años.forEach(año => {
-        const bloqueAño = document.createElement("div");
-        bloqueAño.classList.add("bloque", `año${año}`);
-        bloqueAño.innerHTML = `<h2>${año}° Año</h2>`;
-        
-        const cuatrimestres = ["Anual", 1, 2];
-        cuatrimestres.forEach(cu => {
-            const cuatriDiv = document.createElement("div");
-            cuatriDiv.classList.add("cuatrimestre");
-            cuatriDiv.innerHTML = `<strong>${cu === "Anual" ? "Anual" : cu + "° Cuatrimestre"}</strong>`;
-            
-            materias.filter(m => m.año === año && m.cuatri === cu)
-                    .forEach(materia => {
-                const materiaDiv = document.createElement("div");
-                materiaDiv.classList.add("materia");
+    materias.forEach(m => {
+        const aprobada = progreso.includes(m.id);
+        const requisitosCumplidos = !m.req || m.req.every(r => progreso.includes(r));
 
-                if (!puedeCursar(materia.nombre) && !aprobadas.includes(materia.nombre)) {
-                    materiaDiv.classList.add("bloqueada");
-                }
-                if (aprobadas.includes(materia.nombre)) {
-                    materiaDiv.classList.add("aprobada");
-                }
-
-                materiaDiv.textContent = materia.nombre;
-                materiaDiv.addEventListener("click", () => toggleMateria(materia.nombre));
-                
-                cuatriDiv.appendChild(materiaDiv);
-            });
-            bloqueAño.appendChild(cuatriDiv);
-        });
-        
-        contenedor.appendChild(bloqueAño);
+        const div = document.createElement("div");
+        div.className = `materia ${m.grupo} ${aprobada ? "aprobada" : ""} ${!requisitosCumplidos && !aprobada ? "bloqueada" : ""}`;
+        div.innerHTML = `
+            <strong>${m.nombre}</strong>
+            <br><small>${m.req ? "Requisitos: " + m.req.map(id => materias.find(x => x.id === id)?.nombre).join(", ") : "Sin requisitos"}</small>
+            <br><button ${(!requisitosCumplidos && !aprobada) ? "disabled" : ""}>
+                ${aprobada ? "Aprobada" : "Aprobar"}
+            </button>
+        `;
+        div.querySelector("button").addEventListener("click", () => aprobarMateria(m.id));
+        contenedor.appendChild(div);
     });
 }
 
-function puedeCursar(nombre) {
-    let requisitos = materias.filter(m => m.abre.includes(nombre)).map(m => m.nombre);
-    return requisitos.every(req => aprobadas.includes(req));
-}
-
-function toggleMateria(nombre) {
-    if (aprobadas.includes(nombre)) {
-        aprobadas = aprobadas.filter(m => m !== nombre);
-    } else {
-        if (!puedeCursar(nombre)) return;
-        aprobadas.push(nombre);
+function aprobarMateria(id) {
+    if (!progreso.includes(id)) {
+        progreso.push(id);
+        localStorage.setItem("progresoMaterias", JSON.stringify(progreso));
+        renderMalla();
     }
-    localStorage.setItem("aprobadas", JSON.stringify(aprobadas));
-    crearMalla();
 }
 
-crearMalla();
+renderMalla();
