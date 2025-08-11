@@ -1,67 +1,54 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #fff5f5;
-    color: #333;
-    margin: 0;
-    padding: 20px;
+    margin: 20px;
+    background: #fafafa;
 }
 
 h1 {
     text-align: center;
-    color: #a33;
+    margin-bottom: 20px;
 }
 
-.malla-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.bloque {
-    padding: 15px;
-    border-radius: 10px;
-    width: 280px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.bloque h2 {
-    margin-bottom: 10px;
-    font-size: 18px;
+#malla {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
 }
 
 .materia {
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 8px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.2s ease;
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: all 0.3s;
+    position: relative;
 }
 
-.materia:hover {
-    background-color: #fdd;
+.materia button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.aprobada {
+    text-decoration: line-through;
+    opacity: 0.4;
+    pointer-events: none;
 }
 
 .materia.bloqueada {
-    background-color: #eee;
-    color: #aaa;
-    cursor: not-allowed;
+    opacity: 0.6;
+    background-color: #f2f2f2;
+    pointer-events: none;
 }
 
-.materia.aprobada {
-    text-decoration: line-through;
-    opacity: 0.5;
-}
+.año1c1 { border-color: #ff9999; background-color: #ffe5e5; }
+.año1c2 { border-color: #ffcc99; background-color: #fff0e5; }
+.año1anual { border-color: #ffeb99; background-color: #fffbe5; }
 
-.año1 { background-color: #ffe0e0; }
-.año2 { background-color: #ffe8d6; }
-.año3 { background-color: #e0ffe0; }
+.año2c1 { border-color: #99ff99; background-color: #e5ffe5; }
+.año2c2 { border-color: #99ffff; background-color: #e5ffff; }
+.año2anual { border-color: #ccccff; background-color: #f0f0ff; }
 
-.cuatrimestre {
-    border-top: 2px solid #ccc;
-    padding-top: 5px;
-}
-
-
+.año3c1 { border-color: #ff99ff; background-color: #ffe5ff; }
+.año3anual { border-color: #d9b3ff; background-color: #f5e5ff; }
